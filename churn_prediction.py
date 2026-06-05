@@ -229,6 +229,15 @@ if st.button("Predict Churn"):
 
     input_data = compute_engineered_features(input_data)
     proba, pred = predict_churn(pipeline, input_data, threshold)
+    # -----------------------------
+    # Risk Category Logic
+    # -----------------------------
+    if proba < 0.30:
+        risk = "🟢 Low Risk"
+    elif proba < 0.70:
+        risk = "🟡 Medium Risk"
+    else:
+        risk = "🔴 High Risk"
 
     # BEAUTIFUL RESULT CARD
     st.markdown("""
@@ -265,5 +274,10 @@ if st.button("Predict Churn"):
         <div class="result-card">
             <div class="prob">Churn Probability: {proba:.4f}</div>
             <div class="{churn_class}">{churn_text}</div>
+            <div style="font-size:26px; margin-top:15px; font-weight:700; color:#333;">
+                Risk Category: {risk}
+            </div>
+
+
         </div>
     """, unsafe_allow_html=True)
