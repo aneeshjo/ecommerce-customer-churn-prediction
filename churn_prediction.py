@@ -291,3 +291,41 @@ if st.button("Predict Churn"):
 
         </div>
     """, unsafe_allow_html=True)
+    # -----------------------------
+    # Retention Recommendations
+    # -----------------------------
+    st.subheader("📌 Retention Recommendations")
+
+    if "High Risk" in risk:
+        st.error("""
+    ### 🔴 High Risk Customer — Immediate Actions Needed
+
+    **Recommended Actions:**
+    • Offer retention discounts  
+    • Contact customer directly  
+    • Investigate recent complaints  
+    • Provide loyalty incentives  
+    • Assign a dedicated support agent  
+    """)
+
+    elif "Medium Risk" in risk:
+        st.warning("""
+    ### 🟡 Medium Risk Customer — Preventive Actions
+
+    **Recommended Actions:**
+    • Send personalized engagement emails  
+    • Offer small incentives  
+    • Promote new features or products  
+    • Monitor activity trends  
+    """)
+
+    else:
+        st.success("""
+    ### 🟢 Low Risk Customer — Maintain Engagement
+
+    **Recommended Actions:**
+    • Continue current engagement strategy  
+    • Send appreciation messages  
+    • Offer loyalty rewards occasionally  
+    • Encourage product reviews  
+    """)
