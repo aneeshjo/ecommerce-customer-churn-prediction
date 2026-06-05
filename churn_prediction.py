@@ -195,6 +195,45 @@ with col13:
 with col14:
     Customer_Service_Calls = st.number_input("Customer Service Calls", 0, 50, 1, step=1)
 
+# -----------------------------
+# Customer Summary Card
+# -----------------------------
+st.subheader("🧾 Customer Summary")
+
+st.markdown("""
+    <style>
+    .summary-card {
+        background-color: #ffffff;
+        padding: 18px;
+        border-radius: 10px;
+        border-left: 6px solid #6f42c1;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        margin-bottom: 20px;
+    }
+    .summary-text {
+        font-size: 17px;
+        line-height: 1.7;
+        color: #222222;
+        font-weight: 500;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown(f"""
+<div class="summary-card">
+    <div class="summary-text">
+        <b>Age:</b> {Age}<br>
+        <b>Country:</b> {Country}<br>
+        <b>City:</b> {City}<br>
+        <b>Membership Years:</b> {Membership_Years:.2f}<br>
+        <b>Total Purchases:</b> {Total_Purchases}<br>
+        <b>Login Frequency:</b> {Login_Frequency}<br>
+        <b>Email Open Rate:</b> {Email_Open_Rate}%<br>
+    </div>
+</div>
+""", unsafe_allow_html=True)
+
+
 # ---------------------------------------------------
 # PREDICTION
 # ---------------------------------------------------
