@@ -6,6 +6,8 @@ import pandas as pd
 import joblib
 from sklearn.preprocessing import StandardScaler
 
+
+
 # ---------------------------------------------------
 # Load model + threshold + engagement bins
 # ---------------------------------------------------
@@ -70,6 +72,30 @@ def predict_churn(pipeline, X: pd.DataFrame, threshold: float):
 # Streamlit UI
 # ---------------------------------------------------
 st.set_page_config(page_title="Churn Prediction App", layout="wide")
+
+# -----------------------------
+# Sidebar Section
+# -----------------------------
+st.sidebar.title("Customer Churn Prediction")
+
+st.sidebar.info("""
+This application predicts customer churn risk
+using a trained Machine Learning model.
+
+**Steps:**
+1. Enter customer information  
+2. Click **Predict Churn**  
+3. Review risk level and recommendations  
+""")
+
+st.sidebar.markdown("---")
+st.sidebar.subheader("📌 About This App")
+st.sidebar.write("Built by Aneesh using Machine Learning & Streamlit.")
+
+
+# -----------------------------
+# Main Title
+# -----------------------------
 st.title("🔮 Customer Churn Prediction Dashboard")
 st.write("Enter customer details below to predict churn probability.")
 
