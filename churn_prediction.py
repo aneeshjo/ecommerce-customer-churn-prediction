@@ -230,6 +230,16 @@ if st.button("Predict Churn"):
     input_data = compute_engineered_features(input_data)
     proba, pred = predict_churn(pipeline, input_data, threshold)
     # -----------------------------
+    # Probability Gauge
+    # -----------------------------
+    st.subheader("📊 Churn Probability Gauge")
+    st.progress(float(proba))
+
+    st.metric(
+        label="Churn Probability",
+        value=f"{proba * 100:.2f}%"
+    )
+    # -----------------------------
     # Risk Category Logic
     # -----------------------------
     if proba < 0.30:
